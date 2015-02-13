@@ -1,0 +1,18 @@
+
+{
+    "name": "lukezbihlyj/vdf-parser",
+    "homepage": "https://github.com/lukezbihlyj/vdf-parser",
+    "autoload": {
+        "psr-4": {
+            "VdfParser\\": ["src/"]
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

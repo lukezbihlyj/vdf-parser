@@ -1,6 +1,11 @@
 # VDF Parser
 
-An open-source VDF parser for Valve's proprietary format used in Source games. This package is 100% tested and available for use in any project under the MIT license.
+An open-source VDF parser for Valve's proprietary format used in Source games. This package is 100% tested and available for use in any project under the MIT license. The parser currently supports all features of VDF, including:
+
+- Arbitrary whitespace, including tab characters and spaces.
+- Comments, which will be ignored during parsing.
+- Escaped strings, allowing backslash escaping inside strings for both keys and values.
+- Nested arrays, using recursion.
 
 ## Installation
 

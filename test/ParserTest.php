@@ -74,4 +74,50 @@ VDF;
 
         $this->assertEquals($result, $this->parser->parse($vdf));
     }
+
+    /**
+     * @covers ::parse
+     */
+    public function testParseAllowsRandomWhitespace()
+    {
+        $vdf = <<<VDF
+{
+    "one" {
+
+  "inner" "This is a sub-array element."
+}}
+VDF;
+
+        $result = [
+            'one' => [
+                'inner' => 'This is a sub-array element.',
+            ],
+        ];
+
+        $this->assertEquals($result, $this->parser->parse($vdf));
+    }
+
+    /**
+     * @covers ::parse
+     */
+    public function testParseAllowsComments()
+    {
+        $vdf = <<<VDF
+{
+    // This is a comment, ignore me.
+    "one" {
+        "inner" "This is a sub-array element." // Ignore me also.
+        // Don't load me. "ignore" "me"
+    }
+}
+VDF;
+
+        $result = [
+            'one' => [
+                'inner' => 'This is a sub-array element.',
+            ],
+        ];
+
+        $this->assertEquals($result, $this->parser->parse($vdf));
+    }
 }

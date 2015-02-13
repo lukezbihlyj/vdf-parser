@@ -1,12 +1,12 @@
 # VDF Parser
 
-An open-source VDF parser for Valve's proprietary format used in Source games.
+An open-source VDF parser for Valve's proprietary format used in Source games. This package is 100% tested and available for use in any project under the MIT license.
 
 ## Installation
 
 ### Via Composer
 
-Add the following to your `composer.json` file:
+Add the following to your `composer.json` file and run `composer update` to update the dependencies and pull in the new package.
 
 ```json
 "require": {
@@ -14,24 +14,34 @@ Add the following to your `composer.json` file:
 }
 ```
 
-And run `composer update` to pull in the new dependency.
-
 ## Usage
 
-To decode a VDF file you should pass the contents to the Parser class. An example is available below:
+### Parsing
 
 ```php
+$string = <<<VDF
+{
+    "key" "value"
+}
+VDF;
+
 $parser = new VdfParser\Parser;
-$array = $parser->parse($string);
+$result = $parser->parse($string);
+
+//
+// $result = [
+//     'key' => 'value'
+// ]
+//
 ```
 
 ## Testing
 
-Unit tests are available and we strive to achieve 100% code coverage. To run the tests, run the following:
+Unit tests are available and we strive to achieve 100% code coverage. Running the test suite is incredibly simple.
 
 ```bash
 $ composer install
 $ php vendor/bin/phpunit -c test/phpunit.xml
 ```
 
-In addition to the phpunit results being output to the terminal, code coverage documentation will be generated under the `build/` directory.
+In addition to the phpunit results being output to the terminal, code coverage documentation will also be generated under the `build/` directory.

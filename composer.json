@@ -1,7 +1,11 @@
 
 {
     "name": "lukezbihlyj/vdf-parser",
+    "type": "library",
+    "description": "An open-source VDF parser for Valve's proprietary format used in Source games.",
+    "keywords": ["vdf", "valve", "parser"],
     "homepage": "https://github.com/lukezbihlyj/vdf-parser",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "VdfParser\\": ["src/"]
